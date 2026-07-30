@@ -1,4 +1,332 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><title>RESS · Research Projects Hub</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 15%,#5a2b18 0,transparent 34rem),#07111f;color:#f5f8fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(920px,calc(100% - 28px));min-height:100vh;margin:auto;display:flex;flex-direction:column}nav{padding:24px 0}nav a{color:#b6c6d8;text-decoration:none;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.panel{margin:auto 0;padding:clamp(28px,7vw,68px);border:1px solid #ffffff22;border-radius:28px;background:#102036dc;box-shadow:0 30px 90px #0005}.tag{color:#fb923c;font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{margin:20px 0 16px;font-size:clamp(3.8rem,14vw,8.5rem);line-height:.88;letter-spacing:-.065em}.lead{max-width:700px;margin:0;color:#b0bfd0;font-size:clamp(1.05rem,3vw,1.4rem);line-height:1.65}.status{display:inline-flex;align-items:center;gap:10px;margin-top:42px;padding:11px 15px;border:1px solid #ffffff22;border-radius:999px;color:#d9e3ee;font-size:.82rem}.status i{width:8px;height:8px;border-radius:50%;background:#fb923c;box-shadow:0 0 18px #fb923c}footer{margin-top:auto;padding:26px 0 34px;color:#8093a8;font-size:.82rem}@media(max-width:600px){.panel{border-radius:22px}.status{align-items:flex-start;border-radius:16px;line-height:1.4}}
-</style></head><body><div class="wrap"><nav><a href="../">← Research Projects Hub</a></nav><main class="panel"><div class="tag">Emergency systems · Risk-aware navigation</div><h1>RESS</h1><p class="lead">Risk-aware emergency evacuation, navigation, and resilient routing under dynamic hazards and uncertain urban conditions.</p><div class="status"><i></i><span>Project page is being prepared</span></div></main><footer>Detailed methods, results, and publications will be added soon.</footer></div></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="RESS: density-hazard coupled global navigation for efficient and risk-aware evacuation in maze-like urban settlements.">
+  <title>RESS · Risk-Aware Emergency Navigation</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body style="--accent:#b35b18;--accent-dark:#7d3c10;--accent-soft:#fff3e9">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="../">← Research Projects Hub</a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="#summary">Summary</a>
+        <a href="#method">Method</a>
+        <a href="#shipai">Results</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="project-hero">
+        <div class="project-hero-grid">
+          <div>
+            <div class="eyebrow">Emergency systems · Dynamic navigation · Exposure control</div>
+            <h1>RESS</h1>
+            <p class="subtitle">Density–hazard coupled navigation for maze-like urban settlements.</p>
+            <p class="lead">RESS combines a calibrated microscopic movement model, online congestion-aware travel cost, evolving hazard intensity, and hard blocking to test a central proposition: a route that clears crowds efficiently is not necessarily a route that controls exposure.</p>
+            <div class="status-line">
+              <span class="pill">Paired scenarios</span>
+              <span class="pill">Tail clearance</span>
+              <span class="pill">Soft Risk</span>
+              <span class="pill">Hard Harm</span>
+            </div>
+          </div>
+          <aside class="paper-meta" aria-label="Paper profile">
+            <dl>
+              <div><dt>Central question</dt><dd>Can dynamic evacuation guidance preserve congestion relief while explicitly suppressing hazard exposure?</dd></div>
+              <div><dt>Compared strategies</dt><dd>Static, Density-60, and Density–Hazard DH-60</dd></div>
+              <div><dt>Selected operating point</dt><dd>Hazard weight β* = 1.0 s/m; update period Δt* = 60 s</dd></div>
+              <div><dt>Full-scale evidence</dt><dd>50 matched Shipai scenarios per strategy</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <div class="article-layout">
+        <aside class="toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#summary">Executive summary</a></li>
+              <li><a href="#positioning">Problem and contribution</a></li>
+              <li><a href="#method">Unified framework</a></li>
+              <li><a href="#metrics">Evaluation metrics</a></li>
+              <li><a href="#validation">Movement validation</a></li>
+              <li><a href="#calibration">Strategy calibration</a></li>
+              <li><a href="#shipai">Shipai benchmark</a></li>
+              <li><a href="#spatial">Spatial mechanisms</a></li>
+              <li><a href="#transfer">Transfer across scales</a></li>
+              <li><a href="#limitations">Limitations</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+              <li><a href="#resources">Paper and figures</a></li>
+            </ol>
+          </details>
+        </aside>
+
+        <article class="article-content">
+          <section class="section" id="summary">
+            <div class="abstract">
+              <p>RESS develops a density–hazard coupled global navigation framework for evacuation in irregular urban-village networks. A simplified network is used to select a practical hazard weight and field-update period before testing the operating point on 50 paired Shipai scenarios. Density-60 and DH-60 achieve similar mean tail clearance at the selected point, but their safety outcomes diverge sharply: relative to Static, DH-60 reduces population Soft Risk by 78.2% and Hard Harm by 99.9%, compared with 38.3% and 83.0% under Density-60. The result shows why evacuation efficiency and model-based exposure must be treated as distinct objectives.</p>
+            </div>
+            <div class="metric-grid" style="margin-top:20px">
+              <div class="metric"><span class="metric-label">Shipai scenarios</span><strong>50</strong><p>matched runs per strategy</p></div>
+              <div class="metric"><span class="metric-label">DH-60 Soft Risk</span><strong>−78.2%</strong><p>relative to Static routing</p></div>
+              <div class="metric"><span class="metric-label">DH-60 Hard Harm</span><strong>−99.9%</strong><p>relative to Static routing</p></div>
+              <div class="metric"><span class="metric-label">DH-60 t99</span><strong>−16.8%</strong><p>relative to Static routing</p></div>
+              <div class="metric"><span class="metric-label">Hazard weight</span><strong>β* = 1.0</strong><p>knee of the tested efficiency–exposure curve</p></div>
+              <div class="metric"><span class="metric-label">Update period</span><strong>60 s</strong><p>selected tail-time–computation compromise</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="positioning">
+            <div class="section-heading">
+              <div class="eyebrow">Research position</div>
+              <div>
+                <h2>Fast is not always safe</h2>
+                <p>Static shortest-path guidance ignores changing crowd state and hazard intensity. Density-aware guidance reacts to congestion, but it can redirect pedestrians through dangerous alternatives when it has no direct information about the hazard field.</p>
+              </div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">01 / CROWD STATE</span><h3>Dynamic travel cost</h3><p>SPH density and a calibrated speed–density relation update local travel-time cost as congestion evolves.</p></article>
+              <article class="content-card"><span class="number">02 / HAZARD STATE</span><h3>Continuous cost and blocking</h3><p>Hazard intensity raises route cost before exposure accumulates and excludes cells beyond the hard threshold.</p></article>
+              <article class="content-card"><span class="number">03 / RELIABILITY</span><h3>Separate tail and risk metrics</h3><p>Tail clearance, Soft Risk, and Hard Harm reveal differences that mean evacuation time can miss.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="method">
+            <div class="section-heading">
+              <div class="eyebrow">Methodology</div>
+              <div>
+                <h2>A unified dynamic potential field</h2>
+                <p>All three comparison strategies are parameter configurations of the same framework, which makes the role of density and hazard information explicit.</p>
+              </div>
+            </div>
+            <div class="method-flow" aria-label="RESS method chain">
+              <div class="method-step"><strong>Density estimation</strong><span>Estimate the evolving crowd-density field with SPH and convert density to local slowness.</span></div>
+              <div class="method-step"><strong>Hazard evaluation</strong><span>Update continuous intensity R and derive the hard blocking mask B.</span></div>
+              <div class="method-step"><strong>Global potential</strong><span>Combine travel-time and hazard costs, solve the global field, and extract route directions.</span></div>
+              <div class="method-step"><strong>Pedestrian motion</strong><span>Blend global guidance with local interaction and update positions through time.</span></div>
+            </div>
+            <figure class="paper-figure" style="margin-top:28px">
+              <a class="preview-link" href="../assets/figures/ress/framework.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/framework.png" alt="RESS framework integrating pedestrian density, hazard intensity, navigation cost, force interaction, and motion updates."></a>
+              <figcaption class="figure-caption"><div><strong>Figure 1. Dynamic navigation framework</strong><p>Pedestrian state and hazard state jointly update the navigation potential before motion is advanced.</p></div><a class="pdf-link" href="../assets/figures/ress/framework.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+            </figure>
+            <figure class="paper-figure" style="margin-top:20px">
+              <a class="preview-link" href="../assets/figures/ress/potential.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/potential.png" alt="Composition of the RESS dynamic cost field from density-dependent travel time and hazard cost."></a>
+              <figcaption class="figure-caption"><div><strong>Figure 2. Composition of the dynamic cost field</strong><p>The density channel represents changing travel time; the hazard channel adds continuous exposure cost and exact blocking.</p></div><a class="pdf-link" href="../assets/figures/ress/potential.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+            </figure>
+            <div class="result-table-wrap" style="margin-top:24px">
+              <table class="result-table">
+                <thead><tr><th>Strategy</th><th>Density information</th><th>Hazard information</th><th>Field update</th><th>Interpretation</th></tr></thead>
+                <tbody>
+                  <tr><td>Static</td><td>No</td><td>No</td><td>Computed once</td><td>Pure geometric distance-to-exit reference</td></tr>
+                  <tr><td>Density-60</td><td>Yes</td><td>No</td><td>Every 60 s</td><td>Congestion-aware efficiency baseline</td></tr>
+                  <tr><td>DH-60</td><td>Yes</td><td>Continuous cost + blocking</td><td>Every 60 s</td><td>Hazard-aware alternative</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section" id="metrics">
+            <div class="section-heading">
+              <div class="eyebrow">Assessment protocol</div>
+              <div>
+                <h2>Clearance and exposure are reported separately</h2>
+                <p>Each metric is defined at run level and then summarized across the identified ensemble. This prevents a within-run quantile from being confused with a cross-run risk measure.</p>
+              </div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">EFFICIENCY</span><h3>T<sub>0.95</sub> and T<sub>0.99</sub></h3><p>Tail clearance times capture the late portion of the evacuation process that mean clearance can conceal.</p></article>
+              <article class="content-card"><span class="number">SOFT RISK</span><h3>Σ<sub>s</sub></h3><p>Population accumulation of the model-based continuous risk score over agents and active time steps.</p></article>
+              <article class="content-card"><span class="number">HARD HARM</span><h3>H</h3><p>Cumulative agent–time-step pairs above the severe-risk threshold R<sub>H</sub> = 4.5.</p></article>
+            </div>
+            <div class="formula">Σ<sub>s</sub><sup>(k)</sup> = Σ<sub>i</sub>E<sub>i</sub><sup>(k)</sup>, &nbsp;&nbsp; H<sup>(k)</sup> = Σ<sub>n</sub>Σ<sub>i</sub> 𝟙[R(x<sub>i</sub>(t<sub>n</sub>),t<sub>n</sub>) &gt; R<sub>H</sub>]</div>
+          </section>
+
+          <section class="section" id="validation">
+            <div class="section-heading">
+              <div class="eyebrow">Movement evidence</div>
+              <div>
+                <h2>Calibration before strategy comparison</h2>
+                <p>The microscopic movement model is checked against empirical fundamental diagrams and meso-level flow–width relationships before the navigation strategies are evaluated.</p>
+              </div>
+            </div>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/corridor-geometries.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/corridor-geometries.png" alt="Canonical corridor geometries used for RESS movement-model validation."></a>
+                <figcaption class="figure-caption"><div><strong>Corridor configurations</strong><p>Canonical geometries support meso-level validation beyond a single corridor width.</p></div><a class="pdf-link" href="../assets/figures/ress/corridor-geometries.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/flow-width-validation.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/flow-width-validation.png" alt="Three-way comparison of simulated and empirical flow-width relationships."></a>
+                <figcaption class="figure-caption"><div><strong>Flow–width validation</strong><p>Simulated capacities are compared with empirical and reference relationships under the screened calibration.</p></div><a class="pdf-link" href="../assets/figures/ress/flow-width-validation.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="section" id="calibration">
+            <div class="section-heading">
+              <div class="eyebrow">Simplified network</div>
+              <div>
+                <h2>Selecting a practical operating point</h2>
+                <p>Hazard weight and update frequency are calibrated separately so their roles remain interpretable before the operating point is transferred to Shipai.</p>
+              </div>
+            </div>
+            <h3>Hazard weight β</h3>
+            <p>Across β = 0.1–10.0 s/m, the cross-run upper T<sub>0.95</sub> rises by 38.0%, while upper population exposure falls by 29.1%. Moving from β = 0.1 to 1.0 reduces exposure by 20.3% at an 8.1% time cost. Moving from 1.0 to 10.0 yields a further 11.1% exposure reduction but adds a 27.7% tail-time penalty.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/beta-tradeoff.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/beta-tradeoff.png" alt="Efficiency-exposure trade-off across the tested hazard weights."></a>
+                <figcaption class="figure-caption"><div><strong>Efficiency–exposure trade-off</strong><p>β = 1.0 marks a knee before the high-β time penalty dominates.</p></div><a class="pdf-link" href="../assets/figures/ress/beta-tradeoff.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/beta-harm.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/beta-harm.png" alt="Tail clearance and Hard Harm trade-off across hazard weights."></a>
+                <figcaption class="figure-caption"><div><strong>Efficiency–Hard Harm trade-off</strong><p>β = 1.0 nearly eliminates Hard Harm without the much longer detours at β ≥ 5.</p></div><a class="pdf-link" href="../assets/figures/ress/beta-harm.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <h3 style="margin-top:34px">Field-update period Δt<sub>u</sub></h3>
+            <p>A 10 s update produces the largest clearance and congestion gains but requires 5.59× the Static computation time. The 60 s period increases mean T<sub>0.95</sub> by only 15.0 s relative to 10 s while reducing total runtime by a factor of 3.4 and field-update cost by 5.7×.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/update-tradeoff.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/update-tradeoff.png" alt="Evacuation quality and computation cost across navigation-field update periods."></a>
+                <figcaption class="figure-caption"><div><strong>Update-period trade-off</strong><p>The selected 60 s period balances tail evacuation quality and online recomputation cost.</p></div><a class="pdf-link" href="../assets/figures/ress/update-tradeoff.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/compute-period.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/compute-period.png" alt="Computation-time decomposition across navigation-field update periods."></a>
+                <figcaption class="figure-caption"><div><strong>Computation decomposition</strong><p>The CPU-side global-field update is the principal online bottleneck at short periods.</p></div><a class="pdf-link" href="../assets/figures/ress/compute-period.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <div class="note-callout"><strong>Operating-point interpretation.</strong> β* = 1.0 and Δt<sub>u</sub>* = 60 s are balanced operating choices within the tested system. Neither is claimed as a universal single-metric optimum.</div>
+          </section>
+
+          <section class="section" id="shipai">
+            <div class="section-heading">
+              <div class="eyebrow">Full-scale benchmark</div>
+              <div>
+                <h2>Shipai separates efficiency from safety</h2>
+                <p>The operating point is tested on a larger, more irregular network with randomized upper-load demand of 40,087–49,892 agents. These populations are computational stress tests rather than demographic estimates of simultaneous evacuation.</p>
+              </div>
+            </div>
+            <figure class="paper-figure">
+              <a class="preview-link" href="../assets/figures/ress/shipai-layout.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/shipai-layout.png" alt="Remote-sensing map, building footprints, and pedestrian network for the Shipai benchmark."></a>
+              <figcaption class="figure-caption"><div><strong>Shipai benchmark</strong><p>Remote-sensing base map, building footprints, and pedestrian network used to construct the full-scale domain.</p></div><a class="pdf-link" href="../assets/figures/ress/shipai-layout.png" target="_blank" rel="noopener">Open image ↗</a></figcaption>
+            </figure>
+            <div class="result-table-wrap" style="margin-top:24px">
+              <table class="result-table">
+                <thead><tr><th>Strategy</th><th>Mean T<sub>0.95</sub></th><th>Mean T<sub>0.99</sub></th><th>Mean Soft Risk</th><th>Mean Hard Harm</th></tr></thead>
+                <tbody>
+                  <tr><td>Static</td><td>1114 s</td><td>1431 s</td><td>43.11 × 10<sup>6</sup></td><td>2649.5 × 10<sup>3</sup></td></tr>
+                  <tr><td>Density-60</td><td class="best">956 s <span class="note">(−14.1%)</span></td><td>1228 s <span class="note">(−14.2%)</span></td><td>26.59 × 10<sup>6</sup> <span class="note">(−38.3%)</span></td><td>451.5 × 10<sup>3</sup> <span class="note">(−83.0%)</span></td></tr>
+                  <tr><td><strong>DH-60</strong></td><td>961 s <span class="note">(−13.7%)</span></td><td class="best">1191 s <span class="note">(−16.8%)</span></td><td class="best">9.39 × 10<sup>6</sup> <span class="note">(−78.2%)</span></td><td class="best">2.86 × 10<sup>3</sup> <span class="note">(−99.9%)</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="evidence-box" style="margin-top:24px">
+              <h2>Paired comparison</h2>
+              <p>DH-60 minus Density-60 is 4.6 s for T<sub>0.95</sub> (95% CI −15.3 to 22.6 s) and −36.8 s for T<sub>0.99</sub> (95% CI −122.1 to 31.3 s). Both intervals include zero. The analysis therefore does not detect a mean tail-time difference at this operating point, but it does not establish equivalence. The much larger separation is in Soft Risk and Hard Harm.</p>
+            </div>
+          </section>
+
+          <section class="section" id="spatial">
+            <div class="section-heading">
+              <div class="eyebrow">Mechanism</div>
+              <div>
+                <h2>Similar congestion relief, different route safety</h2>
+                <p>Density-60 and DH-60 both disperse persistent load away from overloaded Static corridors. DH-60 additionally prevents the redistributed flow from accumulating along hazardous alternatives.</p>
+              </div>
+            </div>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ress/spatial-reduction.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/spatial-reduction.png" alt="Static-relative reductions in cumulative density and congestion-duration fields for Density-60 and DH-60."></a>
+                <figcaption class="figure-caption"><div><strong>Spatial reductions over 50 scenarios</strong><p>Both dynamic strategies reduce hotspot magnitude and spatial extent.</p></div><a class="pdf-link" href="../assets/figures/ress/spatial-reduction.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <div class="content-card">
+                <span class="number">STATIC-RELATIVE CHANGE</span>
+                <h3>Persistent hotspot reduction</h3>
+                <p>For Density-60 and DH-60, respectively:</p>
+                <ul class="key-list">
+                  <li>95th percentile cumulative density load: −14.2% and −15.6%</li>
+                  <li>High-load cell count: −60.2% and −63.8%</li>
+                  <li>95th percentile congestion duration: −12.7% and −15.1%</li>
+                  <li>Long-duration congestion cell count: −68.9% and −69.5%</li>
+                </ul>
+              </div>
+            </div>
+            <figure class="paper-figure" style="margin-top:20px">
+              <a class="preview-link" href="../assets/figures/ress/spatial-fields.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/spatial-fields.png" alt="Representative route-use, cumulative density, and congestion-duration fields for Static, Density-60, and DH-60."></a>
+              <figcaption class="figure-caption"><div><strong>Representative spatial fields</strong><p>Columns compare Static, Density-60, and DH-60; rows show route use, cumulative density load, and congestion duration for one paired scenario.</p></div><a class="pdf-link" href="../assets/figures/ress/spatial-fields.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+            </figure>
+            <p>Hazard-source stratification confirms the pattern across near-exit, near-main-road, and far-from-both classes. DH-60 reduces class-specific Soft Risk by 74.6–83.7% and nearly eliminates Hard Harm, while source placement changes exposure far more strongly than tail clearance.</p>
+          </section>
+
+          <section class="section" id="transfer">
+            <div class="section-heading">
+              <div class="eyebrow">Scale transfer</div>
+              <div>
+                <h2>What transfers—and what does not</h2>
+                <p>The simplified network and Shipai differ by roughly an order of magnitude in agent count and substantially in topology. The comparison supports a two-stage screening workflow, not morphology-independent parameter universality.</p>
+              </div>
+            </div>
+            <div class="finding-grid">
+              <article class="finding-card"><span class="number">TRANSFERS</span><h3>Intended operating behavior</h3><p>The selected hazard weight remains near a practical efficiency–exposure balance, and DH-60 retains the lowest model-based exposure indicators.</p></article>
+              <article class="finding-card"><span class="number">CHANGES</span><h3>Time cost of hazard avoidance</h3><p>DH has a +7.7% tail-time penalty on the simplified network, but only a +0.5% point estimate on Shipai; the paired CI includes zero.</p></article>
+              <article class="finding-card"><span class="number">DEPENDS ON MORPHOLOGY</span><h3>Path redundancy</h3><p>More alternative path families can absorb hazard-driven redirection at a lower marginal time cost.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="limitations">
+            <div class="limitation-box">
+              <h2>Limitations and future directions</h2>
+              <ul class="key-list">
+                <li>Agents fully comply with the navigation field; behavioral heterogeneity, groups, and partial compliance are not represented.</li>
+                <li>The hazard field is parameterized rather than physics-based. Results concern relative routing performance, not absolute fire or toxic-exposure prediction.</li>
+                <li>Hazard-parameter sweeps demonstrate field response, not outcome-level ranking robustness.</li>
+                <li>Reliability evidence comes from scenario ensembles and tail-sensitive statistics, not converged exceedance probabilities or CVaR estimates.</li>
+                <li>The two-dimensional formulation excludes vertical evacuation and terrain effects, and cross-morphology generality remains open.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="conclusion">
+            <div class="conclusion-box">
+              <div class="eyebrow">Conclusion</div>
+              <h2>Efficient evacuation and safe evacuation are non-equivalent objectives</h2>
+              <p>RESS shows that congestion-aware routing can improve clearance without adequately controlling exposure. At the calibrated operating point, Density-60 and DH-60 have similar mean tail-clearance behavior on Shipai, yet DH-60 produces far lower Soft Risk and Hard Harm because it changes which alternative routes remain attractive as the hazard evolves.</p>
+              <ul class="key-list">
+                <li>The framework connects calibrated pedestrian movement, online density-dependent travel cost, continuous hazard cost, and hard blocking.</li>
+                <li>The paired Shipai confidence intervals do not detect a mean tail-time difference between Density-60 and DH-60; they do not prove equivalence.</li>
+                <li>DH-60 reduces Soft Risk by 78.2% and Hard Harm by 99.9% relative to Static, compared with 38.3% and 83.0% for Density-60.</li>
+                <li>β* = 1.0 and Δt<sub>u</sub>* = 60 s define a practical tested operating point, not a universal optimum.</li>
+                <li>Simplified-network calibration is useful as a screening step only when followed by target-domain verification.</li>
+                <li>Evacuation planning should report T<sub>0.99</sub>, Soft Risk, and Hard Harm with an explicit ensemble functional rather than rely on mean clearance alone.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="resources">
+            <div class="section-heading">
+              <div class="eyebrow">Research archive</div>
+              <div><h2>Paper and original figures</h2><p>The website follows the latest reviewed TeX content. The downloadable PDF is the available compiled manuscript snapshot.</p></div>
+            </div>
+            <div class="button-row">
+              <a class="button" href="../assets/papers/RESS-manuscript.pdf" target="_blank" rel="noopener">Open manuscript PDF</a>
+              <a class="button secondary" href="../assets/figures/ress/framework.pdf" target="_blank" rel="noopener">Framework PDF</a>
+              <a class="button secondary" href="../assets/figures/ress/spatial-fields.pdf" target="_blank" rel="noopener">Spatial results PDF</a>
+              <a class="button secondary" href="../assets/figures/ress/source-stratification.pdf" target="_blank" rel="noopener">Source-location PDF</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>RESS · Risk-Aware Emergency Navigation</span>
+      <a href="../">Return to all projects →</a>
+    </footer>
+  </div>
+</body>
+</html>

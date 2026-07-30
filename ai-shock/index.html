@@ -1,4 +1,381 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><title>AI Shock · Research Projects Hub</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 15%,#3b1c61 0,transparent 34rem),#07111f;color:#f5f8fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(920px,calc(100% - 28px));min-height:100vh;margin:auto;display:flex;flex-direction:column}nav{padding:24px 0}nav a{color:#b6c6d8;text-decoration:none;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.panel{margin:auto 0;padding:clamp(28px,7vw,68px);border:1px solid #ffffff22;border-radius:28px;background:#102036dc;box-shadow:0 30px 90px #0005}.tag{color:#c084fc;font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{margin:20px 0 16px;font-size:clamp(3.8rem,14vw,8.5rem);line-height:.88;letter-spacing:-.065em}.lead{max-width:700px;margin:0;color:#b0bfd0;font-size:clamp(1.05rem,3vw,1.4rem);line-height:1.65}.status{display:inline-flex;align-items:center;gap:10px;margin-top:42px;padding:11px 15px;border:1px solid #ffffff22;border-radius:999px;color:#d9e3ee;font-size:.82rem}.status i{width:8px;height:8px;border-radius:50%;background:#c084fc;box-shadow:0 0 18px #c084fc}footer{margin-top:auto;padding:26px 0 34px;color:#8093a8;font-size:.82rem}@media(max-width:600px){.panel{border-radius:22px}.status{align-items:flex-start;border-radius:16px;line-height:1.4}}
-</style></head><body><div class="wrap"><nav><a href="../">← Research Projects Hub</a></nav><main class="panel"><div class="tag">Urban economy · Institutional design</div><h1>AI Shock</h1><p class="lead">A stylized urban economy for studying AI transition, effective demand, distributional change, and institutional responses.</p><div class="status"><i></i><span>Project page is being prepared</span></div></main><footer>Detailed methods, results, and publications will be added soon.</footer></div></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Governing the AI Shock: a stock-flow-aware heterogeneous-agent model of institutional responses to an AI productivity shock in a stylized urban economy.">
+  <title>Governing the AI Shock · A Stylized Urban Economy</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body style="--accent:#6e3fa0;--accent-dark:#4e2877;--accent-soft:#f5effb">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="../">← Research Projects Hub</a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="#summary">Summary</a>
+        <a href="#model">Model</a>
+        <a href="#findings">Findings</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="project-hero">
+        <div class="project-hero-grid">
+          <div>
+            <div class="eyebrow">Emergent Balance Lab · AI transition · Institutional design</div>
+            <h1 class="long-title">Governing the AI Shock</h1>
+            <p class="subtitle">A stylized urban economy</p>
+            <p class="lead">A stock-flow-aware heterogeneous-agent model examines how employment responsibility, an AI infrastructure levy, solo enterprise, public demand, and fiscal constraints redistribute the gains and stresses of an AI productivity shock.</p>
+            <div class="status-line">
+              <span class="pill">Households</span>
+              <span class="pill">Firms</span>
+              <span class="pill">Government</span>
+              <span class="pill">Bank</span>
+              <span class="pill">E0–E6</span>
+            </div>
+          </div>
+          <aside class="paper-meta" aria-label="Paper profile">
+            <dl>
+              <div><dt>Central question</dt><dd>Which institutions determine whether AI productivity gains become shared demand, secure employment, viable firms, or public services?</dd></div>
+              <div><dt>Model</dt><dd>Closed-loop heterogeneous-agent urban economy with stock-flow accounting</dd></div>
+              <div><dt>Experiment</dt><dd>Two bounded LLM-participation architectures and seven institutional scenarios</dd></div>
+              <div><dt>Claim domain</dt><dd>Mechanism-based counterfactual evidence, not a city forecast</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <div class="article-layout">
+        <aside class="toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#summary">Executive summary</a></li>
+              <li><a href="#questions">Research questions</a></li>
+              <li><a href="#anchors">Empirical anchors</a></li>
+              <li><a href="#model">Economic model</a></li>
+              <li><a href="#llm">Bounded LLM role</a></li>
+              <li><a href="#design">Counterfactual design</a></li>
+              <li><a href="#scenarios">Scenario atlas</a></li>
+              <li><a href="#findings">Main findings</a></li>
+              <li><a href="#architecture">Architecture sensitivity</a></li>
+              <li><a href="#significance">Urban significance</a></li>
+              <li><a href="#limitations">Limitations</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+              <li><a href="#resources">Paper and figures</a></li>
+            </ol>
+          </details>
+        </aside>
+
+        <article class="article-content">
+          <section class="section" id="summary">
+            <div class="abstract">
+              <p>The study treats the AI transition as a closed urban-system problem rather than a productivity calculation alone. In the retained R2 path, laissez-faire private AI raises cumulative real consumption by approximately 5.4% relative to the no-new-AI path, while peak unemployment rises from 2.8% to 13.0% and tail liquidity vulnerability rises from 1.20% to 8.92%. Alternative institutions change where these transition costs appear: employment responsibility preserves jobs inside surviving firms but leaks through exit; an AI levy converts part of the productivity rent into public services; solo enterprise expands self-employment but mostly reallocates existing demand; and the integrated compact strengthens household buffers while shifting stress toward firm survival and concentration.</p>
+            </div>
+            <div class="metric-grid" style="margin-top:20px">
+              <div class="metric"><span class="metric-label">Private AI consumption</span><strong>+5.4%</strong><p>E1 cumulative real consumption relative to E0 in R2</p></div>
+              <div class="metric"><span class="metric-label">Peak unemployment</span><strong>13.0%</strong><p>E1, compared with 2.8% in E0</p></div>
+              <div class="metric"><span class="metric-label">E2 retention</span><strong>297</strong><p>AI-attributable layoffs blocked inside operating firms</p></div>
+              <div class="metric"><span class="metric-label">E3 levy revenue</span><strong>¥5.157m</strong><p>with earmarked public recycling</p></div>
+              <div class="metric"><span class="metric-label">E4 net-new demand</span><strong>24.4%</strong><p>of solo-enterprise sales</p></div>
+              <div class="metric"><span class="metric-label">Institutional branches</span><strong>E0–E6</strong><p>forked from a common qualified month-24 state</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="questions">
+            <div class="section-heading">
+              <div class="eyebrow">Research questions</div>
+              <div>
+                <h2>From productivity to distribution</h2>
+                <p>The analysis asks not only whether AI expands productive capacity, but how the gains and transition losses circulate through employment, demand, firms, public services, and finance.</p>
+              </div>
+            </div>
+            <div class="finding-grid">
+              <article class="finding-card"><span class="number">RQ1</span><h3>Private AI shock</h3><p>How do consumption gains coexist with unemployment and household-liquidity stress?</p></article>
+              <article class="finding-card"><span class="number">RQ2</span><h3>Targeted institutions</h3><p>How do employment responsibility, AI levy recycling, and solo enterprise operate through distinct mechanisms?</p></article>
+              <article class="finding-card"><span class="number">RQ3</span><h3>Integrated compact</h3><p>What changes when employment, redistribution, entrepreneurship, public demand, and fiscal constraints interact?</p></article>
+              <article class="finding-card"><span class="number">RQ4</span><h3>Decision architecture</h3><p>Can similar aggregate consumption conceal different unemployment and firm-exit transition paths?</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="anchors">
+            <div class="section-heading">
+              <div class="eyebrow">Parameterization</div>
+              <div>
+                <h2>Empirical anchors and experimental parameters</h2>
+                <p>Initial unemployment, household behavior, cash buffers, firm dynamics, financial constraints, and fiscal rules are mapped into a coherent model. The website preserves the paper's distinction between empirical anchors and parameters introduced for institutional experimentation.</p>
+              </div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">LABOR</span><h3>Initial unemployment 5.2%</h3><p>The common pre-equilibrium begins from an explicit employment anchor before the seven scenarios fork.</p></article>
+              <article class="content-card"><span class="number">HOUSEHOLDS</span><h3>Income, cash, and consumption</h3><p>Heterogeneous productivity, wages, transfers, liquidity buffers, and marginal propensities shape effective demand.</p></article>
+              <article class="content-card"><span class="number">QUALIFICATION</span><h3>Warm-up gates</h3><p>Accounting, numeric bounds, flow drift, and employment drift must pass before month-24 state branching.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="model">
+            <div class="section-heading">
+              <div class="eyebrow">Methodology</div>
+              <div>
+                <h2>A closed-loop urban economy</h2>
+                <p>Household demand, firm production and labor adjustment, fiscal flows, public services, bank credit, entry, and exit are connected through a deterministic monthly settlement system.</p>
+              </div>
+            </div>
+            <div class="method-flow" aria-label="AI Shock model chain">
+              <div class="method-step"><strong>Households</strong><span>Receive labor and transfer income, hold cash, consume, experience liquidity vulnerability, and may form solo enterprises.</span></div>
+              <div class="method-step"><strong>Firms</strong><span>Set production, hire or release labor, adopt AI, borrow, invest, pay levies, experience distress, enter, or exit.</span></div>
+              <div class="method-step"><strong>Government</strong><span>Collects taxes and levies, funds transfers, public services, investment, procurement, and debt service under fiscal limits.</span></div>
+              <div class="method-step"><strong>Bank</strong><span>Channels deposits and capital into firm credit, entry finance, and government bonds under balance-sheet constraints.</span></div>
+            </div>
+            <figure class="paper-figure" style="margin-top:28px">
+              <a class="preview-link" href="../assets/figures/ai-shock/framework.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/framework.png" alt="Urban Cup framework connecting AI adoption, firm production, labor, household demand, public policy, finance, and evaluation outcomes."></a>
+              <figcaption class="figure-caption"><div><strong>Figure 1. Conceptual framework</strong><p>The theoretical transition layer connects technology, industry, demand, institutions, and distribution inside one closed feedback system.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/framework.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+            </figure>
+          </section>
+
+          <section class="section" id="llm">
+            <div class="section-heading">
+              <div class="eyebrow">Decision architecture</div>
+              <div>
+                <h2>Bounded interpretation, deterministic settlement</h2>
+                <p>LLMs do not directly set economic quantities. They select only from pre-specified categorical stances; the simulation engine then applies the accounting and behavioral equations.</p>
+              </div>
+            </div>
+            <div class="result-table-wrap">
+              <table class="result-table">
+                <thead><tr><th>Actor</th><th>Allowed LLM choice</th><th>Not directly controlled by the LLM</th></tr></thead>
+                <tbody>
+                  <tr><td>Households</td><td>Normal, cautious, or defensive stance when enabled</td><td>Exact consumption expenditure, income, or balance-sheet values</td></tr>
+                  <tr><td>Firms</td><td>Patient, baseline, or aggressive labor stance</td><td>Exact wages, prices, production, employment, or loans</td></tr>
+                  <tr><td>Government</td><td>Baseline, stabilization, balanced-support, or fiscal-guard stance</td><td>Exact tax rates, spending amounts, or debt entries</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="content-grid" style="margin-top:20px">
+              <article class="content-card"><span class="number">R1</span><h3>Government LLM</h3><p>Households, firms, and the bank remain rule-driven; R1 functions as an architecture ablation.</p></article>
+              <article class="content-card"><span class="number">R2</span><h3>Firm + government LLM</h3><p>R2 is the main experiment because enterprise labor adjustment and survival are central transition mechanisms.</p></article>
+              <article class="content-card"><span class="number">AUDIT</span><h3>Whitelists and fallback</h3><p>Invalid outputs revert to rule-based actions, while templates, parsed categories, fallback flags, and response metadata are retained.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="design">
+            <div class="section-heading">
+              <div class="eyebrow">Simulation design</div>
+              <div>
+                <h2>Common-state counterfactuals</h2>
+                <p>Every E0–E6 path within an architecture begins from the same qualified month-24 economic state. AI adoption and institutional treatments activate in month 25.</p>
+              </div>
+            </div>
+            <div class="method-flow" aria-label="Counterfactual experiment sequence">
+              <div class="method-step"><strong>Initialize</strong><span>Create 500 household units, heterogeneous productivity, firms, government, and bank balance sheets.</span></div>
+              <div class="method-step"><strong>Warm up</strong><span>Run 24 shared months and require accounting, numeric, flow-drift, and employment-drift gates.</span></div>
+              <div class="method-step"><strong>Fork</strong><span>Branch E0–E6 from the identical checkpoint within each R1 or R2 architecture.</span></div>
+              <div class="method-step"><strong>Evaluate</strong><span>Compare months 25–120 using cumulative, peak, tail, ending, and maximum-debt outcomes.</span></div>
+            </div>
+            <div class="note-callout"><strong>Causal interpretation.</strong> A single seed limits cross-seed uncertainty, sign stability, confidence intervals, and scale generalization. It does not by itself invalidate within-seed common-state counterfactual contrasts. Comparisons with unfrozen provider responses are qualified separately because economic randomness, service variation, and architecture effects are not fully isolated.</div>
+          </section>
+
+          <section class="section" id="scenarios">
+            <div class="section-heading">
+              <div class="eyebrow">Scenario atlas</div>
+              <div>
+                <h2>Seven institutional branches</h2>
+                <p>E0 is the evolving no-new-AI counterfactual; E1 identifies the private-AI shock. E2–E4 add individual mechanisms to E1, E5 tests a portfolio, and E6 changes its fiscal constraints.</p>
+              </div>
+            </div>
+            <div class="scenario-grid">
+              <article class="scenario-card"><span class="number">E0 / COUNTERFACTUAL</span><h3>No new private AI</h3><p>Post-warm-up time path without new private AI adoption.</p></article>
+              <article class="scenario-card"><span class="number">E1 / SHOCK</span><h3>Laissez-faire private AI</h3><p>Identifies the transition effects of private AI relative to E0.</p></article>
+              <article class="scenario-card"><span class="number">E2 / EMPLOYMENT</span><h3>Employment responsibility</h3><p>Tests layoff restraint, lower work intensity, and temporary wage-cost sharing.</p></article>
+              <article class="scenario-card"><span class="number">E3 / SOCIAL RETURN</span><h3>AI infrastructure levy</h3><p>Recycles part of AI rent into public services and public investment.</p></article>
+              <article class="scenario-card"><span class="number">E4 / TIME DIVIDEND</span><h3>Solo enterprise</h3><p>Tests whether AI-saved time supports self-employment and net-new demand.</p></article>
+              <article class="scenario-card"><span class="number">E5 / COMPACT</span><h3>Integrated policy</h3><p>Combines employment responsibility, levy recycling, solo enterprise, transfers, procurement, and government AI.</p></article>
+              <article class="scenario-card"><span class="number">E6 / FISCAL LIMITS</span><h3>Tighter fiscal compact</h3><p>Assesses how stricter deficit and debt limits alter the integrated policy path.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="findings">
+            <div class="section-heading">
+              <div class="eyebrow">Main findings</div>
+              <div>
+                <h2>Institutions redistribute transition costs</h2>
+                <p>No scenario dominates across demand, employment, liquidity, distribution, firm survival, public services, concentration, and fiscal exposure.</p>
+              </div>
+            </div>
+            <figure class="paper-figure">
+              <a class="preview-link" href="../assets/figures/ai-shock/core-outcomes.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/core-outcomes.png" alt="Six core policy outcomes across E0 through E6 in the R2 architecture."></a>
+              <figcaption class="figure-caption"><div><strong>Figure 2. Core policy trade-offs in R2</strong><p>Bottom-60% consumption, peak unemployment, liquidity vulnerability, public services, firm count, and government debt are shown together to prevent single-metric ranking.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/core-outcomes.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+            </figure>
+
+            <h3 style="margin-top:36px">1. Private AI raises demand and transition stress</h3>
+            <p>Moving from E0 to E1 raises cumulative real consumption from approximately CNY 123.4 million to CNY 130.1 million (+5.4%) and bottom-60% cumulative real consumption by 5.6%. Peak unemployment rises from 2.8% to 13.0%, while tail liquidity vulnerability rises from 1.20% to 8.92%.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/real-consumption.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/real-consumption.png" alt="Monthly aggregate real consumption across E0 through E6 in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Aggregate real consumption</strong><p>Monthly paths reveal how demand effects emerge over time.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/real-consumption.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/income-atkinson.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/income-atkinson.png" alt="Disposable-income Atkinson index across E0 through E6 in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Disposable-income inequality</strong><p>The Atkinson index tracks distributional divergence beyond aggregate demand.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/income-atkinson.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+
+            <h3 style="margin-top:42px">2. Employment protection leaks through enterprise exit</h3>
+            <p>E2 blocks 297 AI-attributable layoffs, reduces tail required work hours from 160 to 147.8, and provides approximately CNY 51,200 in temporary wage-cost sharing. Yet firm exits remove 406 jobs, new firms create only 56, the ending firm count falls to 22, and peak unemployment reaches 16.6%.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/blocked-layoffs.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/blocked-layoffs.png" alt="Cumulative AI-attributable layoffs blocked by employment responsibility in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Layoffs blocked</strong><p>The policy operates inside surviving firms as designed.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/blocked-layoffs.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/exit-layoffs.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/exit-layoffs.png" alt="Job losses from firm exits that fall outside the employment-retention rule."></a>
+                <figcaption class="figure-caption"><div><strong>Exit-related job loss</strong><p>Liquidation and weak job creation remain outside the retention rule.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/exit-layoffs.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+
+            <h3 style="margin-top:42px">3. The AI levy converts private rent into public services</h3>
+            <p>E3 collects CNY 5.157 million in AI infrastructure levy revenue. Approximately 70% finances public services and 30% finances public investment. Relative to E1, cumulative consumption is 0.09% higher, peak unemployment is 0.2 percentage points lower, the tail public-service index is 60.4% higher, and 30 firms remain.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/levy-revenue.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/levy-revenue.png" alt="Cumulative AI infrastructure levy revenue in R2."></a>
+                <figcaption class="figure-caption"><div><strong>AI levy receipts</strong><p>The restricted-fund inflow generated by the programmed levy rule.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/levy-revenue.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/public-service.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/public-service.png" alt="Public-service index produced by earmarked levy recycling."></a>
+                <figcaption class="figure-caption"><div><strong>Public-service response</strong><p>Earmarked spending translates levy receipts into the modeled service index.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/public-service.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <div class="note-callout"><strong>Boundary.</strong> E3 provides the most balanced qualitative combination among the reported outcomes in the retained path. This is not a weighted multi-objective ranking, an optimal levy-rate result, or an externally validated public-service multiplier.</div>
+
+            <h3 style="margin-top:42px">4. Solo enterprise is not equivalent to net-new demand</h3>
+            <p>E4 produces 440 solo entries, 400 exits, approximately CNY 3.165 million in sales, and a tail self-employment rate near 8%. Only 24.4% of sales are net additional demand, while 75.6% displace incumbent sales. Liquidity vulnerability falls from 8.92% to 2.97%, but cumulative consumption and bottom-60% consumption fall and income inequality rises.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/solo-net-new-demand.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/solo-net-new-demand.png" alt="Net-new demand generated by solo enterprises in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Solo-enterprise net-new demand</strong><p>The demand component that adds to rather than reallocates existing expenditure.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/solo-net-new-demand.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/solo-displacement.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/solo-displacement.png" alt="Incumbent demand displaced by solo-enterprise sales in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Incumbent displacement</strong><p>Most solo spending is transferred from existing firms in this path.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/solo-displacement.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+
+            <h3 style="margin-top:42px">5. Integrated policy protects households but pressures firms</h3>
+            <p>E5 blocks 215 AI-attributable layoffs, collects CNY 5.336 million in levy revenue, and generates CNY 3.220 million in solo sales. Relative to E1, the public-service index is 83.1% higher and liquidity vulnerability falls from 8.92% to 1.30%. Cumulative consumption falls by 3.48%, the ending firm count falls to 17, market concentration rises to 0.112, and the income Atkinson index reaches 0.278.</p>
+            <p>The retained E6 path has a maximum debt ratio of approximately 0.31%, compared with 1.95% in E5, but ends with 16 rather than 17 firms and a larger essential-cash shortfall. Tighter fiscal limits lower debt exposure without restoring firm viability.</p>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/market-hhi.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/market-hhi.png" alt="Market concentration paths across E0 through E6 in R2."></a>
+                <figcaption class="figure-caption"><div><strong>Market concentration</strong><p>The HHI path reveals firm-side adjustment that aggregate consumption can miss.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/market-hhi.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/fiscal-curtailment.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/fiscal-curtailment.png" alt="Cumulative fiscal expenditure curtailment under the institutional scenarios."></a>
+                <figcaption class="figure-caption"><div><strong>Fiscal curtailment</strong><p>The path shows when and how strongly fiscal limits bind.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/fiscal-curtailment.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <div class="note-callout"><strong>Attribution boundary.</strong> E5 and E6 do not share frozen LLM responses. Their difference is therefore descriptive; exact fiscal attribution requires paired seeds and common response caches.</div>
+          </section>
+
+          <section class="section" id="architecture">
+            <div class="section-heading">
+              <div class="eyebrow">Sensitivity</div>
+              <div>
+                <h2>Similar totals can conceal different transitions</h2>
+                <p>Across E0–E6, R2 cumulative real consumption differs from R1 by only −0.48% to +0.18%. Unemployment peaks, exit timing, firm survival, and cash distress differ much more strongly.</p>
+              </div>
+            </div>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/r1-unemployment.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/r1-unemployment.png" alt="Monthly unemployment paths across E0 through E6 under R1."></a>
+                <figcaption class="figure-caption"><div><strong>R1 unemployment</strong><p>Government uses an LLM; firms remain rule-driven.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/r1-unemployment.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/r2-unemployment.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/r2-unemployment.png" alt="Monthly unemployment paths across E0 through E6 under R2."></a>
+                <figcaption class="figure-caption"><div><strong>R2 unemployment</strong><p>Firm and government LLM participation changes adjustment timing and peaks.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/r2-unemployment.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <div class="figure-pair" style="margin-top:20px">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/r1-firm-count.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/r1-firm-count.png" alt="Active-firm paths under R1 across E0 through E6."></a>
+                <figcaption class="figure-caption"><div><strong>R1 active firms</strong><p>Firm survival under rule-driven enterprise decisions.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/r1-firm-count.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ai-shock/r2-firm-count.png" target="_blank" rel="noopener"><img src="../assets/figures/ai-shock/r2-firm-count.png" alt="Active-firm paths under R2 across E0 through E6."></a>
+                <figcaption class="figure-caption"><div><strong>R2 active firms</strong><p>Enterprise-level LLM participation changes exit concentration and survival.</p></div><a class="pdf-link" href="../assets/figures/ai-shock/r2-firm-count.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+            <p>Under E5 and E6, peak unemployment is 7.2% in R1 and 13.8% in R2. Ending firm counts are 20 versus 17 in E5 and 20 versus 16 in E6. Because provider responses are not frozen between architectures, the comparison measures combined architecture and service-response sensitivity rather than a fully isolated architecture effect.</p>
+          </section>
+
+          <section class="section" id="significance">
+            <div class="section-heading">
+              <div class="eyebrow">Urban science</div>
+              <div>
+                <h2>AI transition is an urban systems problem</h2>
+                <p>Employment, consumption, firm survival, infrastructure, public services, and fiscal capacity are concentrated in cities and linked through cash flow and institutional feedback.</p>
+              </div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">EVALUATION</span><h3>Track paths and endpoints</h3><p>Aggregate output can improve while unemployment peaks, firm exits, liquidity stress, or bottom-group losses worsen.</p></article>
+              <article class="content-card"><span class="number">DISTRIBUTION</span><h3>Productivity is not distribution</h3><p>Ownership, market power, labor bargaining, infrastructure, and public recycling shape who captures the AI dividend.</p></article>
+              <article class="content-card"><span class="number">NORMATIVE AIM</span><h3>Human development</h3><p>Shared prosperity and human development form a normative objective and research agenda—not an empirical result already established by the simulation.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="limitations">
+            <div class="limitation-box">
+              <h2>Limitations and confirmatory agenda</h2>
+              <ul class="key-list">
+                <li>The formal matrix contains one economic seed and 500 household units. It cannot estimate cross-seed uncertainty, sign stability, confidence intervals, or scale dependence.</li>
+                <li>The no-new-AI path continues to adjust after the fork; E1–E0 is an AI shock relative to an evolving no-new-AI economy, not a static 5.2% unemployment baseline.</li>
+                <li>Zero-decision fallback establishes execution completeness, not validated behavioral responsiveness. The retained firm weak-demand response check fails.</li>
+                <li>Provider generation is not seed-deterministic; exact replay and clean E5–E6 or R1–R2 attribution require frozen response caches.</li>
+                <li>The system is a stylized transition economy, not a calibrated digital representation of a particular city. Housing, land, migration, monetary policy, occupation transitions, and empirically calibrated task exposure remain outside the model.</li>
+                <li>Confirmatory work should add paired seeds, 1,000- and 5,000-unit population scales, response caching, pre-specified parameter sensitivity, and external validation of directions and plausible magnitudes.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="conclusion">
+            <div class="conclusion-box">
+              <div class="eyebrow">Conclusion</div>
+              <h2>Institutional design determines where the AI transition is absorbed</h2>
+              <p>The model's central result is not that one scenario is universally preferred. Institutions determine where transition costs appear, how quickly productivity gains return to households and public services, and whether employment protection is accompanied by viable firms and net-new demand.</p>
+              <ul class="key-list">
+                <li>In the model's common-state contrast, laissez-faire private AI raises cumulative consumption while producing a substantially larger transition-unemployment peak than E0.</li>
+                <li>Employment responsibility converts part of labor saving into shorter hours but does not prevent exit-related job loss.</li>
+                <li>The AI infrastructure levy converts a share of productivity rent into public services, without identifying an optimal rate or externally valid multiplier.</li>
+                <li>Solo enterprise expands self-employment but mostly reallocates existing demand in the retained path.</li>
+                <li>The integrated compact improves public services and household liquidity while concentrating stress in firm survival; tighter fiscal limits lower debt exposure without removing firm-side pressure.</li>
+                <li>R1 and R2 produce materially different unemployment and exit paths even when cumulative consumption differs little; the retained comparison includes service-response variation.</li>
+                <li>The appropriate evaluation system jointly tracks demand, employment, liquidity, distribution, firm dynamics, public services, market structure, and fiscal timing.</li>
+                <li>The current contribution is an auditable framework for turning normative claims about broadly shared AI gains into explicit, falsifiable institutional mechanisms—not a city forecast or final policy ranking.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="resources">
+            <div class="section-heading">
+              <div class="eyebrow">Research archive</div>
+              <div><h2>Paper and original figures</h2><p>The competition-report PDF and the paper-format vector figures are available directly from the page.</p></div>
+            </div>
+            <div class="button-row">
+              <a class="button" href="../assets/papers/Governing-the-AI-Shock.pdf" target="_blank" rel="noopener">Open report PDF</a>
+              <a class="button secondary" href="../assets/figures/ai-shock/framework.pdf" target="_blank" rel="noopener">Framework PDF</a>
+              <a class="button secondary" href="../assets/figures/ai-shock/core-outcomes.pdf" target="_blank" rel="noopener">Core results PDF</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>Governing the AI Shock · Emergent Balance Lab</span>
+      <a href="../">Return to all projects →</a>
+    </footer>
+  </div>
+</body>
+</html>

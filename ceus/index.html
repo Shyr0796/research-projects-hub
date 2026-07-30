@@ -1,4 +1,350 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07111f"><title>CEUS · Research Projects Hub</title><style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 15% 15%,#123f5f 0,transparent 34rem),#07111f;color:#f5f8fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(920px,calc(100% - 28px));min-height:100vh;margin:auto;display:flex;flex-direction:column}nav{padding:24px 0}nav a{color:#b6c6d8;text-decoration:none;font-size:.8rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.panel{margin:auto 0;padding:clamp(28px,7vw,68px);border:1px solid #ffffff22;border-radius:28px;background:#102036dc;box-shadow:0 30px 90px #0005}.tag{color:#67e8f9;font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{margin:20px 0 16px;font-size:clamp(3.8rem,14vw,8.5rem);line-height:.88;letter-spacing:-.065em}.lead{max-width:700px;margin:0;color:#b0bfd0;font-size:clamp(1.05rem,3vw,1.4rem);line-height:1.65}.status{display:inline-flex;align-items:center;gap:10px;margin-top:42px;padding:11px 15px;border:1px solid #ffffff22;border-radius:999px;color:#d9e3ee;font-size:.82rem}.status i{width:8px;height:8px;border-radius:50%;background:#67e8f9;box-shadow:0 0 18px #67e8f9}footer{margin-top:auto;padding:26px 0 34px;color:#8093a8;font-size:.82rem}@media(max-width:600px){.panel{border-radius:22px}.status{align-items:flex-start;border-radius:16px;line-height:1.4}}
-</style></head><body><div class="wrap"><nav><a href="../">← Research Projects Hub</a></nav><main class="panel"><div class="tag">Spatial retrofit · Multi-objective planning</div><h1>CEUS</h1><p class="lead">Multi-objective spatial retrofit and urban road intervention for more equitable, efficient, and sustainable urban systems.</p><div class="status"><i></i><span>Project page is being prepared</span></div></main><footer>Detailed methods, results, and publications will be added soon.</footer></div></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="CEUS: simulation-in-the-loop multi-objective planning for targeted micro-regeneration and evacuation improvement in dense informal settlements.">
+  <title>CEUS · Spatial Retrofit and Urban Intervention</title>
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body style="--accent:#2457a6;--accent-dark:#173d78;--accent-soft:#edf4ff">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="../">← Research Projects Hub</a>
+      <nav class="site-nav" aria-label="Project navigation">
+        <a href="#summary">Summary</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#conclusion">Conclusion</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="project-hero">
+        <div class="project-hero-grid">
+          <div>
+            <div class="eyebrow">Spatial retrofit · Crowd simulation · Multi-objective planning</div>
+            <h1>CEUS</h1>
+            <p class="subtitle">Targeted micro-regeneration for evacuation improvement in dense urban settlements.</p>
+            <p class="lead">CEUS integrates computational environment construction, calibrated crowd simulation, bottleneck diagnosis, and simulation-in-the-loop optimization to identify limited road interventions with measurable evacuation benefits.</p>
+            <div class="status-line">
+              <span class="pill">Shipai Village</span>
+              <span class="pill">SPH crowd model</span>
+              <span class="pill">NSGA-II</span>
+              <span class="pill">Pareto decision support</span>
+            </div>
+          </div>
+          <aside class="paper-meta" aria-label="Paper profile">
+            <dl>
+              <div><dt>Research question</dt><dd>Which small set of road interventions yields the largest evacuation benefit for a limited reconstruction budget?</dd></div>
+              <div><dt>Study setting</dt><dd>Dense, maze-like urban-village morphology in Shipai, Guangzhou</dd></div>
+              <div><dt>Decision variables</dt><dd>Discrete 0 m, 2 m, or 4 m widening across 15 candidate road segments</dd></div>
+              <div><dt>Evidence type</dt><dd>Simulation, paired-seed verification, and parameter sensitivity</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <div class="article-layout">
+        <aside class="toc">
+          <details open>
+            <summary>On this page</summary>
+            <ol>
+              <li><a href="#summary">Executive summary</a></li>
+              <li><a href="#questions">Questions and contributions</a></li>
+              <li><a href="#context">Study context</a></li>
+              <li><a href="#method">Framework and model</a></li>
+              <li><a href="#design">Experimental design</a></li>
+              <li><a href="#baseline">Baseline diagnosis</a></li>
+              <li><a href="#results">Optimization results</a></li>
+              <li><a href="#verification">Village-scale verification</a></li>
+              <li><a href="#sensitivity">Sensitivity and robustness</a></li>
+              <li><a href="#performance">Computational performance</a></li>
+              <li><a href="#limitations">Evidence boundary</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+              <li><a href="#resources">Paper and figures</a></li>
+            </ol>
+          </details>
+        </aside>
+
+        <article class="article-content">
+          <section class="section" id="summary">
+            <div class="abstract">
+              <p>Dense informal settlements rarely permit comprehensive road reconstruction. CEUS reframes the problem as targeted micro-regeneration: reconstruct the existing urban fabric computationally, simulate evacuation under candidate widening plans, and search for non-dominated solutions that balance evacuation performance and intervention cost. In the completed 15-segment optimization, the method retained 39 non-dominated plans from 1,040 simulator evaluations. A representative intervention produced progressively larger improvements toward the tail of the evacuation process, while sensitivity analysis separated objective-space robustness from uncertainty in the exact road set.</p>
+            </div>
+            <div class="metric-grid" style="margin-top:20px">
+              <div class="metric"><span class="metric-label">Finite-budget search</span><strong>1,040</strong><p>real simulation evaluations</p></div>
+              <div class="metric"><span class="metric-label">Decision set</span><strong>39</strong><p>unique non-dominated solutions</p></div>
+              <div class="metric"><span class="metric-label">Paired verification</span><strong>5</strong><p>shared initial-position seeds</p></div>
+              <div class="metric"><span class="metric-label">Tail improvement</span><strong>25.84%</strong><p>mean reduction in t95 for the representative intervention</p></div>
+              <div class="metric"><span class="metric-label">Recurring segments</span><strong>R3 + R13</strong><p>dominant road choices across tested settings</p></div>
+              <div class="metric"><span class="metric-label">Scale-up test</span><strong>50,000</strong><p>agents in the demanding stress-test configuration</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="questions">
+            <div class="section-heading">
+              <div class="eyebrow">Research logic</div>
+              <div>
+                <h2>Questions and contributions</h2>
+                <p>The study moves from diagnosis to intervention while keeping cost, model assumptions, and decision uncertainty visible.</p>
+              </div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">01 / REPRESENTATION</span><h3>Computable urban morphology</h3><p>Transform buildings, alleys, exits, and obstacles into a simulation-ready raster environment and obstacle-aware navigation field.</p></article>
+              <article class="content-card"><span class="number">02 / DIAGNOSIS</span><h3>Simulation-derived bottlenecks</h3><p>Identify persistent congestion and delayed-clearance corridors from crowd dynamics rather than from road width alone.</p></article>
+              <article class="content-card"><span class="number">03 / DECISION</span><h3>Cost-effectiveness frontier</h3><p>Return a family of intervention portfolios so planners can choose among competing evacuation and reconstruction priorities.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="context">
+            <div class="section-heading">
+              <div class="eyebrow">Case setting</div>
+              <div>
+                <h2>Shipai Village as a morphological stress test</h2>
+                <p>The approximately 80 ha study domain contains 1,660 building aggregates and a highly irregular pedestrian network. Typical alleys are approximately 0.8–3 m wide, with frequent dead ends and constrained connections.</p>
+              </div>
+            </div>
+            <figure class="paper-figure">
+              <a class="preview-link" href="../assets/figures/ceus/shipai-study-area.png" target="_blank" rel="noopener">
+                <img src="../assets/figures/ceus/shipai-study-area.png" alt="Maps locating Guangzhou and Shipai Village and showing the study boundary.">
+              </a>
+              <figcaption class="figure-caption">
+                <div><strong>Study area. Shipai Village, Guangzhou</strong><p>The site combines dense building blocks, narrow alleys, irregular junctions, and multiple boundary exits.</p></div>
+                <a class="pdf-link" href="../assets/figures/ceus/shipai-study-area.png" target="_blank" rel="noopener">Open image ↗</a>
+              </figcaption>
+            </figure>
+            <div class="note-callout"><strong>Population interpretation.</strong> The 50,000-agent configuration is a deliberately demanding computational stress test. It is not presented as a definitive estimate of simultaneous evacuees.</div>
+          </section>
+
+          <section class="section" id="method">
+            <div class="section-heading">
+              <div class="eyebrow">Methodology</div>
+              <div>
+                <h2>A closed simulation–optimization chain</h2>
+                <p>Each candidate plan changes the environment, so evacuation performance is recalculated by the simulator rather than approximated by a fixed surrogate.</p>
+              </div>
+            </div>
+            <div class="method-flow" aria-label="CEUS method chain">
+              <div class="method-step"><strong>Environment construction</strong><span>Rasterize buildings, walkable space, road widths, obstacles, and exits from spatial data.</span></div>
+              <div class="method-step"><strong>Crowd simulation</strong><span>Use SPH density estimation, calibrated speed–density behavior, navigation gradients, and local interaction.</span></div>
+              <div class="method-step"><strong>Bottleneck diagnosis</strong><span>Aggregate evacuation time, density, and congestion-duration fields to identify candidate intervention segments.</span></div>
+              <div class="method-step"><strong>Multi-objective search</strong><span>Evaluate discrete widening portfolios inside NSGA-II and retain the finite-budget Pareto approximation.</span></div>
+            </div>
+            <figure class="paper-figure" style="margin-top:28px">
+              <a class="preview-link" href="../assets/figures/ceus/framework.png" target="_blank" rel="noopener">
+                <img src="../assets/figures/ceus/framework.png" alt="CEUS framework linking urban data, computational environment construction, crowd simulation, bottleneck diagnosis, and road-widening optimization.">
+              </a>
+              <figcaption class="figure-caption">
+                <div><strong>Figure 1. Simulation–optimization framework</strong><p>Three integrated components connect spatial reconstruction, evacuation simulation, and targeted micro-regeneration.</p></div>
+                <a class="pdf-link" href="../assets/figures/ceus/framework.pdf" target="_blank" rel="noopener">Original PDF ↗</a>
+              </figcaption>
+            </figure>
+            <div class="figure-pair" style="margin-top:20px">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/navigation-field.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/navigation-field.png" alt="Shipai road network and derived navigation potential field."></a>
+                <figcaption class="figure-caption"><div><strong>Navigation field</strong><p>Obstacle-aware distance-to-exit information produces feasible local guidance directions.</p></div><a class="pdf-link" href="../assets/figures/ceus/navigation-field.png" target="_blank" rel="noopener">Open ↗</a></figcaption>
+              </figure>
+              <div class="content-card">
+                <span class="number">MODEL CALIBRATION</span>
+                <h3>Movement evidence</h3>
+                <p>The SPH-based pedestrian model is calibrated against empirical corridor speed–density and flow–density relationships. Corridor experiments, free-flow lower-bound checks, and paired village-scale tests establish model plausibility and internal consistency within the stated protocol.</p>
+                <div class="formula">v = v(ρ), &nbsp; ρᵢ = Σⱼ mⱼW(rᵢⱼ,h)</div>
+                <p>These checks do not constitute direct field validation of absolute village evacuation times.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="design">
+            <div class="section-heading">
+              <div class="eyebrow">Experiment</div>
+              <div><h2>Discrete road widening under competing objectives</h2></div>
+            </div>
+            <div class="content-grid">
+              <article class="content-card"><span class="number">DECISIONS</span><h3>15 candidate roads</h3><p>Each segment receives no widening, 2 m widening, or 4 m widening.</p></article>
+              <article class="content-card"><span class="number">OBJECTIVE 1</span><h3>Evacuation score</h3><p>A simulation-derived objective captures clearance performance under the modified layout.</p></article>
+              <article class="content-card"><span class="number">OBJECTIVE 2</span><h3>Reconstruction cost</h3><p>Intervention burden increases with the selected segments and widening magnitude.</p></article>
+            </div>
+            <div class="formula">min&nbsp; F<sub>evac</sub>(x), &nbsp; min&nbsp; F<sub>cost</sub>(x), &nbsp; xⱼ ∈ {0, 2, 4} m</div>
+            <p>The finite-budget optimizer does not claim a unique global optimum. It constructs a set of non-dominated plans that expose the cost–performance trade-off available within the completed run.</p>
+          </section>
+
+          <section class="section" id="baseline">
+            <div class="section-heading">
+              <div class="eyebrow">Baseline diagnosis</div>
+              <div>
+                <h2>Late clearance is spatially concentrated</h2>
+                <p>Under the original layout, 87.73% of agents finish within 400 s. The residual population is concentrated in deep cul-de-sacs and constrained central corridors, making the tail of the process a spatial planning problem.</p>
+              </div>
+            </div>
+            <div class="figure-pair">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/baseline-outcomes.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/baseline-outcomes.png" alt="Histograms of baseline evacuation time and travel distance."></a>
+                <figcaption class="figure-caption"><div><strong>Baseline evacuation outcomes</strong><p>Distributions of simulated evacuation time and travel distance under the original layout.</p></div><a class="pdf-link" href="../assets/figures/ceus/baseline-outcomes.png" target="_blank" rel="noopener">Open ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/baseline-congestion.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/baseline-congestion.png" alt="Spatial distribution of cumulative evacuation time and crowd density in Shipai."></a>
+                <figcaption class="figure-caption"><div><strong>Accumulated congestion</strong><p>Spatial diagnostics reveal persistent bottlenecks rather than treating every narrow road as equally important.</p></div><a class="pdf-link" href="../assets/figures/ceus/baseline-congestion.png" target="_blank" rel="noopener">Open ↗</a></figcaption>
+              </figure>
+            </div>
+            <figure class="paper-figure" style="margin-top:20px">
+              <a class="preview-link" href="../assets/figures/ceus/candidate-roads.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/candidate-roads.png" alt="Candidate high-risk road segments identified for reconstruction."></a>
+              <figcaption class="figure-caption"><div><strong>Candidate intervention set</strong><p>High-risk road segments are selected from the spatial simulation evidence and passed to the optimization stage.</p></div><a class="pdf-link" href="../assets/figures/ceus/candidate-roads.png" target="_blank" rel="noopener">Open image ↗</a></figcaption>
+            </figure>
+          </section>
+
+          <section class="section" id="results">
+            <div class="section-heading">
+              <div class="eyebrow">Optimization results</div>
+              <div>
+                <h2>A family of viable intervention portfolios</h2>
+                <p>The completed seed-11 run retained 39 unique non-dominated plans from 1,040 real simulator calls. Representative points make the planning trade-off interpretable.</p>
+              </div>
+            </div>
+            <div class="result-table-wrap">
+              <table class="result-table">
+                <thead><tr><th>Planning preference</th><th>Cost objective</th><th>Evacuation objective</th><th>Selected widening</th></tr></thead>
+                <tbody>
+                  <tr><td>No intervention</td><td>0</td><td>1430.61</td><td>Original layout</td></tr>
+                  <tr><td>Lowest-cost nonzero</td><td>375.19</td><td>1269.76</td><td>R3 and R13, each 2 m</td></tr>
+                  <tr><td><strong>Ideal compromise</strong></td><td>747.52</td><td>1197.17</td><td>R3 and R13, each 4 m</td></tr>
+                  <tr><td>Evacuation priority</td><td>1532.90</td><td>1155.65</td><td>R3, R11, R13, R14</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="paper-figure" style="margin-top:24px">
+              <a class="preview-link" href="../assets/figures/ceus/pareto-front.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/pareto-front.png" alt="Finite-budget Pareto-front approximation for the 15 candidate road segments."></a>
+              <figcaption class="figure-caption"><div><strong>Pareto-front approximation</strong><p>All retained non-dominated solutions and representative choices from the completed run. Incomplete runs are excluded.</p></div><a class="pdf-link" href="../assets/figures/ceus/pareto-front.png" target="_blank" rel="noopener">Open figure ↗</a></figcaption>
+            </figure>
+            <div class="note-callout"><strong>Interpretation.</strong> The Hypervolume increased from 4.339×10<sup>6</sup> after the initial 40 evaluations to 5.050×10<sup>6</sup> at completion. This supports improvement in attained objective-space coverage under the stated reference point; it is not, by itself, evidence that one road-widening plan is uniquely stable.</div>
+          </section>
+
+          <section class="section" id="verification">
+            <div class="section-heading">
+              <div class="eyebrow">Macro verification</div>
+              <div>
+                <h2>The intervention effect grows toward the evacuation tail</h2>
+                <p>The representative compromise is compared with the original layout across five paired seeds using identical initial positions and a 50,000-agent load.</p>
+              </div>
+            </div>
+            <div class="result-table-wrap">
+              <table class="result-table">
+                <thead><tr><th>Metric</th><th>Original layout</th><th>Intervention</th><th>Mean improvement</th></tr></thead>
+                <tbody>
+                  <tr><td>t50</td><td>414.82 ± 2.18 s</td><td>385.93 ± 2.08 s</td><td class="best">6.96 ± 0.13%</td></tr>
+                  <tr><td>t80</td><td>951.97 ± 7.37 s</td><td>792.07 ± 8.06 s</td><td class="best">16.80 ± 0.41%</td></tr>
+                  <tr><td>t95</td><td>1913.22 ± 18.79 s</td><td>1418.98 ± 27.24 s</td><td class="best">25.84 ± 0.82%</td></tr>
+                  <tr><td>Normalized population-time</td><td>580.33 ± 4.10</td><td>483.34 ± 4.53</td><td class="best">16.71 ± 0.21%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="figure-pair" style="margin-top:24px">
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/macro-verification.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/macro-verification.png" alt="Spatial and process comparison between the original layout and representative intervention."></a>
+                <figcaption class="figure-caption"><div><strong>Village-scale spatial assessment</strong><p>The strongest time reductions concentrate in central and central-eastern corridors; the remaining-population curve is shown to 95% clearance.</p></div><a class="pdf-link" href="../assets/figures/ceus/macro-verification.png" target="_blank" rel="noopener">Open ↗</a></figcaption>
+              </figure>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/free-flow-check.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/free-flow-check.png" alt="Actual-path free-flow plausibility comparison for original and intervention layouts."></a>
+                <figcaption class="figure-caption"><div><strong>Free-flow plausibility check</strong><p>Simulated times are compared with actual-path lower bounds across five seeds.</p></div><a class="pdf-link" href="../assets/figures/ceus/free-flow-check.png" target="_blank" rel="noopener">Open ↗</a></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="section" id="sensitivity">
+            <div class="section-heading">
+              <div class="eyebrow">Robustness</div>
+              <div>
+                <h2>Model response and plan stability are tested separately</h2>
+                <p>The analysis distinguishes whether the objective values remain useful from whether the same roads are selected.</p>
+              </div>
+            </div>
+            <div class="finding-grid">
+              <article class="finding-card"><span class="number">PHYSICAL RESPONSE</span><h3>13 parameter scenarios</h3><p>Across ±5% and ±10% perturbations of k, h, and ρ<sub>max</sub>, the zero-widening evacuation objective changes from −8.92% to +11.13%.</p></article>
+              <article class="finding-card"><span class="number">INTERVENTION BENEFIT</span><h3>Benefit remains positive</h3><p>The fixed plan retains 3.85–7.78% improvement; scenario-specific re-optimization yields 3.88–7.59%.</p></article>
+              <article class="finding-card"><span class="number">DECISION SIMILARITY</span><h3>Jaccard 0.667–1.0</h3><p>Width-weighted Jaccard ranges from 0.544 to 1.0. R3 and R13 dominate, with occasional R6 or R14.</p></article>
+              <article class="finding-card"><span class="number">NSGA-II SETTINGS</span><h3>HV spread 0.45%</h3><p>Seven equal-call configurations show close objective-space performance but wider road-set Jaccard values of 0.278–0.639.</p></article>
+              <article class="finding-card"><span class="number">50,000 AGENTS</span><h3>Plan Jaccard 1.0</h3><p>All 39 physical scenario-seed combinations select R3 and R13 at 4 m; benefit ranges from 14.08% to 15.38%.</p></article>
+              <article class="finding-card"><span class="number">INTERPRETATION</span><h3>No uniqueness claim</h3><p>Objective-space stability does not prove global convergence, parameter independence, or a unique widening plan.</p></article>
+            </div>
+            <div class="figure-stack" style="margin-top:28px">
+              <div class="figure-pair">
+                <figure class="paper-figure">
+                  <a class="preview-link" href="../assets/figures/ceus/physical-sensitivity.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/physical-sensitivity.png" alt="Sensitivity of the baseline evacuation score to crowd-model parameters."></a>
+                  <figcaption class="figure-caption"><div><strong>Physical-parameter response</strong><p>Mean ± SD across seeds 11, 29, and 47.</p></div><a class="pdf-link" href="../assets/figures/ceus/physical-sensitivity.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+                </figure>
+                <figure class="paper-figure">
+                  <a class="preview-link" href="../assets/figures/ceus/decision-robustness.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/decision-robustness.png" alt="Robustness of road-widening decisions under physical-parameter perturbations."></a>
+                  <figcaption class="figure-caption"><div><strong>Intervention robustness</strong><p>Fixed-plan and re-optimized benefits are shown beside mean widening decisions.</p></div><a class="pdf-link" href="../assets/figures/ceus/decision-robustness.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+                </figure>
+              </div>
+              <figure class="paper-figure">
+                <a class="preview-link" href="../assets/figures/ceus/nsga2-sensitivity.png" target="_blank" rel="noopener"><img src="../assets/figures/ceus/nsga2-sensitivity.png" alt="Equal-call NSGA-II parameter sensitivity across population, crossover, and mutation settings."></a>
+                <figcaption class="figure-caption"><div><strong>Equal-call optimizer sensitivity</strong><p>Final Hypervolume is compared with a common reference point across seeds and parameter settings.</p></div><a class="pdf-link" href="../assets/figures/ceus/nsga2-sensitivity.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="section" id="performance">
+            <div class="section-heading">
+              <div class="eyebrow">Performance</div>
+              <div><h2>Full-scale simulation remains practical for iterative planning</h2></div>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><span class="metric-label">50,000 agents</span><strong>22.12 s</strong><p>empirical end-to-end runtime in the fixed Shipai domain</p></div>
+              <div class="metric"><span class="metric-label">100,000 agents</span><strong>51.33 s</strong><p>empirical end-to-end runtime in the same domain</p></div>
+              <div class="metric"><span class="metric-label">Optimization campaign</span><strong>≈ 6.06 h</strong><p>for 1,040 calls, averaging approximately 20.99 s per evaluation</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="limitations">
+            <div class="limitation-box">
+              <h2>How to read the evidence</h2>
+              <ul class="key-list">
+                <li>Corridor calibration, paired seeds, and free-flow checks support plausibility and internal consistency; they do not directly validate absolute village clearance times against a field evacuation.</li>
+                <li>Hypervolume supports the attained objective-space trade-off under its stated reference point. Road-selection stability requires Jaccard-based decision comparison.</li>
+                <li>The 50,000-agent consistency result is evidence for this Shipai stress test, not a general law that higher density always produces a unique bottleneck plan.</li>
+                <li>Behavioral heterogeneity, compliance, dynamic hazards, and multi-hazard interactions remain outside the present optimization experiment.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="conclusion">
+            <div class="conclusion-box">
+              <div class="eyebrow">Conclusion</div>
+              <h2>Localized spatial change can produce system-level evacuation gains</h2>
+              <p>CEUS demonstrates a practical way to connect urban morphology, crowd dynamics, and constrained intervention design. The method does not assume that every narrow alley should be widened. It identifies where targeted change is most consequential, evaluates each plan with the simulator, and exposes the cost–performance frontier available to planners.</p>
+              <ul class="key-list">
+                <li>The integrated framework links spatial reconstruction, calibrated simulation, bottleneck diagnosis, and multi-objective micro-regeneration.</li>
+                <li>In Shipai, the representative intervention produces clear reductions in middle and late clearance metrics, with the largest relative gain at t95.</li>
+                <li>R3 and R13 are the most persistent intervention targets across the tested settings.</li>
+                <li>The objective-space approximation is comparatively stable, while the exact road set remains more uncertain in lower-population optimizer tests.</li>
+                <li>The 50,000-agent experiments show stronger decision consistency within Shipai, but do not establish cross-city generality.</li>
+                <li>Future work should extend the framework to behavioral heterogeneity, dynamic and multi-hazard scenarios, multi-seed Pareto analysis, and additional urban morphologies.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="section" id="resources">
+            <div class="section-heading">
+              <div class="eyebrow">Research archive</div>
+              <div><h2>Paper and original figures</h2><p>The website follows the latest reviewed TeX content. The downloadable manuscript PDF is the available compiled snapshot and may precede the newest text revisions.</p></div>
+            </div>
+            <div class="button-row">
+              <a class="button" href="../assets/papers/CEUS-manuscript.pdf" target="_blank" rel="noopener">Open manuscript PDF</a>
+              <a class="button secondary" href="../assets/figures/ceus/framework.pdf" target="_blank" rel="noopener">Framework PDF</a>
+              <a class="button secondary" href="../assets/figures/ceus/decision-robustness.pdf" target="_blank" rel="noopener">Robustness figure PDF</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>CEUS · Spatial Retrofit and Urban Intervention</span>
+      <a href="../">Return to all projects →</a>
+    </footer>
+  </div>
+</body>
+</html>
