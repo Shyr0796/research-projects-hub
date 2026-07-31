@@ -407,6 +407,10 @@ button, input, textarea, select { font: inherit; }
   background: var(--paper);
   box-shadow: 0 12px 34px rgba(19, 31, 50, 0.06);
 }
+.paper-figure.width-75-figure {
+  width: 75%;
+  margin-inline: auto;
+}
 .preview-link {
   display: flex;
   min-height: 250px;
@@ -619,6 +623,7 @@ button, input, textarea, select { font: inherit; }
   .scenario-grid,
   .method-flow { grid-template-columns: 1fr; }
   .comparison-pair { grid-template-columns: 1fr; }
+  .paper-figure.width-75-figure { width: 100%; }
   .method-step { min-height: auto; }
   .method-step + .method-step { border-top: 1px solid var(--line); border-left: 0; }
   .preview-link { min-height: 180px; padding: 10px; }
