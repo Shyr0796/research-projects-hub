@@ -420,6 +420,11 @@ button, input, textarea, select { font: inherit; }
   max-height: 680px;
   object-fit: contain;
 }
+.paper-figure.full-width-figure .preview-link { padding: 0; }
+.paper-figure.full-width-figure img {
+  display: block;
+  max-height: none;
+}
 .figure-pair .paper-figure img { max-height: 430px; }
 .figure-caption {
   display: flex;
