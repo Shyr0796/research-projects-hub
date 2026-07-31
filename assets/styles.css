@@ -545,6 +545,11 @@ button, input, textarea, select { font: inherit; }
   font-size: 2.1rem;
   font-weight: 500;
 }
+.project-card h3.paper-title {
+  font-size: clamp(1.35rem, 2.1vw, 1.72rem);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
 .project-card p { color: var(--muted); }
 .project-card .card-link { color: var(--card-accent, var(--accent)); font-weight: 800; }
 
