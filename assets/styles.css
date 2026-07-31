@@ -411,6 +411,10 @@ button, input, textarea, select { font: inherit; }
   width: 75%;
   margin-inline: auto;
 }
+.paper-figure.width-85-figure {
+  width: 85%;
+  margin-inline: auto;
+}
 .preview-link {
   display: flex;
   min-height: 250px;
@@ -624,6 +628,7 @@ button, input, textarea, select { font: inherit; }
   .method-flow { grid-template-columns: 1fr; }
   .comparison-pair { grid-template-columns: 1fr; }
   .paper-figure.width-75-figure { width: 100%; }
+  .paper-figure.width-85-figure { width: 100%; }
   .method-step { min-height: auto; }
   .method-step + .method-step { border-top: 1px solid var(--line); border-left: 0; }
   .preview-link { min-height: 180px; padding: 10px; }
