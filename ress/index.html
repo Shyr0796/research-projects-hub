@@ -55,6 +55,7 @@
               <li><a href="#summary">Executive summary</a></li>
               <li><a href="#positioning">Problem and contribution</a></li>
               <li><a href="#method">Unified framework</a></li>
+              <li><a href="#hazard-rerouting">Blockage rerouting demo</a></li>
               <li><a href="#metrics">Evaluation metrics</a></li>
               <li><a href="#validation">Movement validation</a></li>
               <li><a href="#corridor-dynamics">Corridor dynamics</a></li>
@@ -121,6 +122,32 @@
               <a class="preview-link" href="../assets/figures/ress/potential.png" target="_blank" rel="noopener"><img src="../assets/figures/ress/potential.png" alt="Composition of the RESS dynamic cost field from density-dependent travel time and hazard cost."></a>
               <figcaption class="figure-caption"><div><strong>Figure 2. Composition of the dynamic cost field</strong><p>The density channel represents changing travel time; the hazard channel adds continuous exposure cost and exact blocking.</p></div><a class="pdf-link" href="../assets/figures/ress/potential.pdf" target="_blank" rel="noopener">Original PDF ↗</a></figcaption>
             </figure>
+            <div id="hazard-rerouting" style="scroll-margin-top:90px; margin-top:40px">
+              <div class="eyebrow">Qualitative mechanism demo</div>
+              <h3 style="margin-top:10px">Adaptive rerouting after a local junction becomes impassable</h3>
+              <p>An expanding hazard footprint erodes traversable cells around the marked junction until the original connection is removed from the feasible network. At the next guidance-field update, the potential is recomputed over the remaining passable cells and compliant pedestrians redirect toward available alternatives, limiting continued entry into the affected area and reducing modeled hazard exposure.</p>
+              <div class="figure-pair" style="margin-top:22px">
+                <figure class="paper-figure">
+                  <a class="preview-link" href="../assets/figures/ress/disaster-field.png" target="_blank" rel="noopener">
+                    <img src="../assets/figures/ress/disaster-field.png" loading="lazy" alt="Diagram comparing the normal pedestrian network with a locally eroded and blocked network after a disaster begins at a junction.">
+                  </a>
+                  <figcaption class="figure-caption">
+                    <div><strong>From hazard onset to a blocked connection</strong><p>The hazard footprint removes passable cells around the marked junction, changing the feasible route network used by the global guidance field.</p></div>
+                    <a class="pdf-link" href="../assets/figures/ress/disaster-field.pdf" target="_blank" rel="noopener">Original PDF ↗</a>
+                  </figcaption>
+                </figure>
+                <figure class="paper-figure">
+                  <a class="preview-link" href="../assets/figures/ress/hazard-rerouting.gif" target="_blank" rel="noopener">
+                    <img src="../assets/figures/ress/hazard-rerouting.gif" loading="lazy" alt="Animated comparison showing pedestrians automatically changing routes when a disaster makes a junction impassable.">
+                  </a>
+                  <figcaption class="figure-caption">
+                    <div><strong>Automatic route adaptation</strong><p>The animation shows the intended controller response as the field update redirects compliant pedestrians through still-passable alternatives.</p></div>
+                    <a class="pdf-link" href="../assets/figures/ress/hazard-rerouting.gif" target="_blank" rel="noopener">Open animation ↗</a>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="note-callout"><strong>Interpretation boundary.</strong> The PDF and animation visualize the same demonstration. They illustrate the intended route-adaptation mechanism; they do not by themselves quantify injury reduction, establish behavioral validity, or replace the paired scenario analysis.</div>
+            </div>
             <div class="result-table-wrap" style="margin-top:24px">
               <table class="result-table">
                 <thead><tr><th>Strategy</th><th>Density information</th><th>Hazard information</th><th>Field update</th><th>Interpretation</th></tr></thead>
@@ -349,6 +376,7 @@
             </div>
             <div class="button-row">
               <a class="button" href="../assets/figures/ress/framework.pdf" target="_blank" rel="noopener">Framework PDF</a>
+              <a class="button secondary" href="../assets/figures/ress/disaster-field.pdf" target="_blank" rel="noopener">Rerouting demo PDF</a>
               <a class="button secondary" href="../assets/figures/ress/spatial-fields.pdf" target="_blank" rel="noopener">Spatial results PDF</a>
               <a class="button secondary" href="../assets/figures/ress/source-stratification.pdf" target="_blank" rel="noopener">Source-location PDF</a>
             </div>
