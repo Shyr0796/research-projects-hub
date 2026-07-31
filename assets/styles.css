@@ -394,6 +394,11 @@ button, input, textarea, select { font: inherit; }
 }
 
 .figure-stack { display: grid; gap: 30px; }
+.comparison-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 .paper-figure {
   margin: 0;
   overflow: hidden;
@@ -420,6 +425,7 @@ button, input, textarea, select { font: inherit; }
   display: block;
   max-height: none;
 }
+.comparison-pair .paper-figure img { max-height: 430px; }
 .figure-caption {
   display: flex;
   justify-content: space-between;
@@ -612,6 +618,7 @@ button, input, textarea, select { font: inherit; }
   .finding-grid,
   .scenario-grid,
   .method-flow { grid-template-columns: 1fr; }
+  .comparison-pair { grid-template-columns: 1fr; }
   .method-step { min-height: auto; }
   .method-step + .method-step { border-top: 1px solid var(--line); border-left: 0; }
   .preview-link { min-height: 180px; padding: 10px; }
