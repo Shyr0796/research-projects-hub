@@ -394,6 +394,22 @@ button, input, textarea, select { font: inherit; }
 }
 
 .figure-stack { display: grid; gap: 30px; }
+.case-media-block {
+  margin-top: 42px;
+  padding-top: 34px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 80px;
+}
+.case-media-block > h3 {
+  max-width: 760px;
+  margin: 10px 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+.case-media-block > p { color: var(--muted); }
 .comparison-pair {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
